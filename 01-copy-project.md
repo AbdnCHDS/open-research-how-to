@@ -8,7 +8,7 @@ If everything goes well, you should now be able to see the project as a new fold
 
 Our primary research data in this case is fake, they are in the files population_demographics.csv and hospital_admissions.xlsx. The data is also missing its data documentation, which should be in [this format](https://github.com/AbdnCHDS/DataDocumentationTemplate).
 
-You are now ready for [step 2: creating an RStudio project]().
+You are now ready for [step 2: creating an RStudio project](https://github.com/AbdnCHDS/open-research-how-to/blob/main/02-rstudio-project.md).
 
 ---
-[GitHub Glossary]()
+[GitHub Glossary](https://github.com/AbdnCHDS/open-research-how-to/blob/main/github-glossary.md)

@@ -22,4 +22,4 @@ Let's get started!
 [Step 4: Clean and analyse the data using R]()
 
 ---
-[GitHub Glossary]()
+[GitHub Glossary](https://github.com/AbdnCHDS/open-research-how-to/blob/main/github-glossary.md)

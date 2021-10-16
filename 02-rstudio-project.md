@@ -12,11 +12,11 @@ Let's [commit this change](https://docs.github.com/en/desktop/contributing-and-c
 - In "Summary", write a short message describing the change, for example: "Created RStudio Project"
 - Click "Commit to main". This will commit the change to the main branch of the repository.
 
-When we start working on our tasks, we will create dedicated branches to develop our code. We will only request for our changes to be pulled into the main branch when we have completed our code and it has been reviewed by our collaborators. This ensures that the main branch always contains code that is complete and approved. We will talk more about this in [step 4](). Creating an RStudio project is a small change that does not need to be approved by our collaborators, so we can commit it to the main branch directly.
+When we start working on our tasks, we will create dedicated branches to develop our code. We will only request for our changes to be pulled into the main branch when we have completed our code and it has been reviewed by our collaborators. This ensures that the main branch always contains code that is complete and approved. We will talk more about this in [step 4](https://github.com/AbdnCHDS/open-research-how-to/blob/main/04-data-cleaning-analysis.md). Creating an RStudio project is a small change that does not need to be approved by our collaborators, so we can commit it to the main branch directly.
 
 - Click "Push origin". This will push the change from your local computer to the "remote" repository, which is your repository on GitHub.   
 
-Excellent! You are now ready for [step 3: adding collaborators and tasks]().
+Excellent! You are now ready for [step 3: adding collaborators and tasks](https://github.com/AbdnCHDS/open-research-how-to/blob/main/03-collaborators-tasks.md).
 
 ---
-[GitHub Glossary]()
+[GitHub Glossary](https://github.com/AbdnCHDS/open-research-how-to/blob/main/github-glossary.md)

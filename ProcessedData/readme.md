@@ -1,0 +1,1 @@
+This folder contains data that has been processed by the researcher, for example, cleaning prior to analysis. It also contains data documentation (updated from the primary research data documentation).

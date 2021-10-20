@@ -1,0 +1,131 @@
+---
+title: "Read in and clean the data"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Overall aim
+
+The aim of this project is to summarise total time in hospital in 2020 by age and deprivation, for a general audience.
+
+### Packages
+
+Packages extend the functionality of base R. They are distributed via CRAN: the Comprehensive R Archive Network
+
+To install a package, run install.packages("packagename") in the console, or click the "install" button on the Packages panel. Do not include the code to install a package in this file, as you only need to install it once.
+
+You then need to load the package, using library(packagename)
+
+It is good practice to load all packages required at the beginning of your code, so that anyone running your code can easily see what packages need to be installed. 
+
+```{r load-packages}
+
+library(tidyverse)  # this is a collection of packages designed for data science
+library(readxl)     # for reading in excel files
+library(here)       # useful for locating files relative to your project working directory
+library(janitor)    # useful for cleaning data :)
+
+```
+
+When you load the tidyverse, you'll see a message about conflicts. As there is an (increasingly) large number of packages in R, it is possible to have functions with the same name in more than one package. The message tells you that packages dplyr and stats both have a function called filter and the one that will be used is the one from dplyr. It is the one that was loaded last.
+
+If you want to use a function from a particular package, you need to include packagename:: before the name of the function.
+
+In this example, you can use stats::filter() instead of just filter() to use filter from the stats package.
+
+```{r find-package}
+find("filter") # this shows you the packages a function belongs to, in order of priority
+```
+
+The tidyverse packages we will be using mostly in this example are readr (for reading in data), dplyr (for transforming data) and ggplot2 (for plotting). 
+
+### Parenthesis: Functions
+
+When using the tidyverse, you can call functions in two ways:
+
+```{r}
+sqrt(4) # base R
+
+4 %>%
+  sqrt  # "pipe" operator (you can read is as "and then...")
+```
+
+* Use the R Studio shortcut Ctrl + Sft + M to create the pipe operator %>%
+* If you are not sure what a function does, type ?functionname in the Console, e.g. ?sqrt
+
+### Read in the data
+
+Reading in data can be tricky, depending on the file format. You are welcome to use the "Import Dataset" feature in RStudio (top right panel). When you are happy with how the data looks in the import window (for example, if there are rows to skip at the top, you have set that correctly), don't press the "Import" button! Instead, copy and paste the R code, which is also shown in the import window, into your R markdown file.
+
+Also, here's when you get to use the "here" package."Here" points to the location of the .Rproj file (which is the working directory for your project), so you just need to add "here" in front of the relative path to your data file.  
+
+```{r read-data}
+
+df_demographics <- read_csv(here("PrimaryResearchData/population_demographics.csv"))
+
+df_admissions <- read_excel(here("PrimaryResearchData/hospital_admissions.xlsx"), 
+    skip = 1)   # this file has an additional row of non-data
+
+```
+
+### Parenthesis: Objects
+
+R stores data as objects. You create new objects when you assign a value to them using "<-":
+
+* Use the R studio shortcut Alt+ - (Alt and the minus sign) to easily create the assignment symbol <-
+* R is case sensitive so if you've defined your object as x, it will not recognise (capital) X. 
+Similarly, the function for square root is sqrt, R will give you an error if you try to use Sqrt.
+* Prefix the object names with the type of object, so you can easily identify them in your workspace. Here we have dataframes (technically tibbles), so we've used the prefix df.
+* A tibble is a tidyverse structure similar to a data frame (from base R) but with some differences:
+   * default printing is shorter
+   * tells you the column types (character, double, etc.)
+   * doesn't change the types of inputs
+
+### Inspect the data
+
+There are a few functions you can use to inspect your data:
+
+* summary (base R)
+* head (base R)
+* glimpse (dplyr)
+
+```{r inspect-data}
+
+summary(df_demographics)
+head(df_admissions)
+glimpse(df_demographics)
+glimpse(df_admissions)
+
+```
+
+### Clean the data
+
+It appears the df_demographics contains an empty column. Let's remove it using remove_empty from the janitor package:
+
+```{r remove-empty-column-demographics}
+
+colnames(df_demographics)  # prints the names of the columns
+
+df_demographics <-  df_demographics %>%
+  remove_empty("cols")
+
+colnames(df_demographics)  
+
+```
+df_admissions contains some empty rows and spaces in the column names
+
+```{r clean-admissions}
+
+summary(df_admissions)
+
+df_admissions <- df_admissions %>%
+  remove_empty("rows") %>%
+  clean_names()
+
+summary(df_admissions)
+
+```
+

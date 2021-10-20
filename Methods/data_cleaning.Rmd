@@ -115,7 +115,36 @@ df_demographics <-  df_demographics %>%
 colnames(df_demographics)  
 
 ```
-df_admissions contains some empty rows and spaces in the column names
+
+Let's have another look at the values in each column.
+
+```{r demographics-summary}
+
+summary(df_demographics)
+
+```
+The maximum in the age column is `r max(df_demographics$age)` and there are `r sum(is.na(df_demographics$deprivation))` missing values in the deprivation column.
+
+* The `r ` is "inline code", which is code results inserted directly into the text of the .Rmd document. "Knit" the document to see what that looks like in the output.
+* The $ symbol allows you to apply a function to a single column in the dataframe.
+
+The easiest way to deal with the wrong age and missing deprivation values is to remove those rows. (In a real dataset, you should investigate why these values are wrong/missing, and whether there is a pattern in the missingness. See [here](https://argoshare.is.ed.ac.uk/healthyr_book/chap11-h1.html) for more information.)
+
+```{r remove-missing-wrong-data-demographics}
+
+df_demographics <- df_demographics %>%
+  filter(!is.na(deprivation)) %>%   # "filter" only keeps the rows that satisfy a condition
+  filter(age<150)
+
+summary(df_demographics)
+
+```
+
+The maximum in the age column is now `r max(df_demographics$age)` and there are `r sum(is.na(df_demographics$deprivation))` missing values in the deprivation column. Much better :)
+
+Let's look at the admission data next.
+
+df_admissions contains some empty rows and spaces in the column names.
 
 ```{r clean-admissions}
 
@@ -126,6 +155,47 @@ df_admissions <- df_admissions %>%
   clean_names()
 
 summary(df_admissions)
+
+```
+
+We expect that the date of discharge is later than the date of admission. Let's check this by creating a new column called "length_of_stay":
+
+
+```{r add-length-of-stay}
+
+df_admissions <- df_admissions %>% 
+  mutate(length_of_stay = date_of_discharge - date_of_admission)  # "mutate" creates a new column
+
+glimpse(df_admissions)
+
+```
+
+As "glimpse" shows, the unit of length_of_stay is seconds, which is not really what we want... We can convert to days like this:
+
+```{r convert-LOS-to-days}
+
+df_admissions <- df_admissions %>%
+  mutate(length_of_stay = as.numeric(length_of_stay, units = "days"))
+
+glimpse(df_admissions)
+
+```
+That's better, but the range of values doesn't seem right...
+
+```{r inspect-LOS}
+
+summary(df_admissions$length_of_stay)  # summarises only this column
+
+df_admissions %>%
+  filter(length_of_stay < 0)           # prints out the rows with negative LOS
+
+```
+
+The problem seems to be that some discharge dates are from 2002, while the rest of the dataset is from 2020. Is this a typo? Again, if this was a real dataset we'd try to find out. Here we will remove those rows.
+
+```{r remove-negative-LOS}
+
+# Add your code here!
 
 ```
 

@@ -12,4 +12,5 @@ You are now ready for [step 2: creating an RStudio project](02-rstudio-project.m
 
 ---
 [GitHub Glossary](github-glossary.md)
+
 [Main Readme Page](readme.md)

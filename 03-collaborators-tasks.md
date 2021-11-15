@@ -26,4 +26,5 @@ Go to [step 4: Clean and analyse the data using R](04-data-cleaning-analysis.md)
 
 ---
 [GitHub Glossary](github-glossary.md)
+
 [Main Readme Page](readme.md)

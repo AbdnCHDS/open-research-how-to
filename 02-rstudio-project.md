@@ -20,4 +20,5 @@ Excellent! You are now ready for [step 3: adding collaborators and tasks](03-col
 
 ---
 [GitHub Glossary](github-glossary.md)
+
 [Main Readme Page](readme.md)

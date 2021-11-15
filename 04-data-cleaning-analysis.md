@@ -27,4 +27,5 @@ For each of our two tasks, we will follow the same workflow, which takes advanta
 
 ---
 [GitHub Glossary](github-glossary.md)
+
 [Main Readme Page](readme.md)

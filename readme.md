@@ -16,13 +16,13 @@ Our aim is to summarise total time in hospital in 2020 by age and deprivation, f
 
 Let's get started!
 
-[Step 1: Copy this project to your own account](https://github.com/AbdnCHDS/open-research-how-to/blob/main/01-copy-project.md)
+[Step 1: Copy this project to your own account](01-copy-project.md)
 
-[Step 2: Create an RStudio project](https://github.com/AbdnCHDS/open-research-how-to/blob/main/02-rstudio-project.md)
+[Step 2: Create an RStudio project](02-rstudio-project.md)
 
-[Step 3: Add collaborators and tasks](https://github.com/AbdnCHDS/open-research-how-to/blob/main/03-collaborators-tasks.md)
+[Step 3: Add collaborators and tasks](03-collaborators-tasks.md)
 
-[Step 4: Clean and analyse the data using R](https://github.com/AbdnCHDS/open-research-how-to/blob/main/04-data-cleaning-analysis.md)
+[Step 4: Clean and analyse the data using R](04-data-cleaning-analysis.md)
 
 ---
-[GitHub Glossary](https://github.com/AbdnCHDS/open-research-how-to/blob/main/github-glossary.md)
+[GitHub Glossary](github-glossary.md)

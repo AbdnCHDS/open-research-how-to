@@ -22,7 +22,8 @@ Description: Join the two datasets, manipulate the data as needed to address our
 
 Well done! You are now ready to start using R, with help from your collaborators who will review your code.
 
-Go to [step 4: Clean and analyse the data using R](https://github.com/AbdnCHDS/open-research-how-to/blob/main/04-data-cleaning-analysis.md)
+Go to [step 4: Clean and analyse the data using R](04-data-cleaning-analysis.md)
 
 ---
-[GitHub Glossary](https://github.com/AbdnCHDS/open-research-how-to/blob/main/github-glossary.md)
+[GitHub Glossary](github-glossary.md)
+[Main Readme Page](readme.md)

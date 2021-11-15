@@ -26,4 +26,5 @@ For each of our two tasks, we will follow the same workflow, which takes advanta
 - When you get approval from the reviewers, merge the pull request and delete the branch (this closes the issue). It doesn't matter who merges the pull request (you or the reviewer), but successfully merging your changes is a satisfying action, so we recommend that you do it yourself - you've earned it after all your hard work. Well done!!
 
 ---
-[GitHub Glossary](https://github.com/AbdnCHDS/open-research-how-to/blob/main/github-glossary.md)
+[GitHub Glossary](github-glossary.md)
+[Main Readme Page](readme.md)

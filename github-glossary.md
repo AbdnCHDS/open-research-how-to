@@ -12,3 +12,6 @@ One of the most frustrating things about GitHub is the terminology... So here ar
 - Clone: copy a repository from GitHub onto your local computer
 - Push: send changes from your local repository to Github
 - Pull: take any changes from the GitHub repository and merge them into your local repository
+
+---
+[Main Readme Page](readme.md)

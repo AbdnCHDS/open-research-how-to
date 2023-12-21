@@ -1,6 +1,9 @@
 ---
 title: "Read in and clean the data"
-output: html_document
+knit: rmarkdown::render
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -10,6 +13,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ### Overall aim
 
 The aim of this project is to summarise total time in hospital in 2020 by age and deprivation, for a general audience.
+
+### Aim of this file
+
+Here we will read in the data, inspect it, and prepare it for analysis. We will then save a clean copy of the data in the ProcessedData folder. In data_analysis.Rmd, we will do the analysis.
 
 ### Packages
 
@@ -26,7 +33,7 @@ It is good practice to load all packages required at the beginning of your code,
 library(tidyverse)  # this is a collection of packages designed for data science
 library(readxl)     # for reading in excel files
 library(here)       # useful for locating files relative to your project working directory
-library(janitor)    # useful for cleaning data :)
+library(janitor)    # useful for cleaning data
 
 ```
 
@@ -40,7 +47,7 @@ In this example, you can use stats::filter() instead of just filter() to use fil
 find("filter") # this shows you the packages a function belongs to, in order of priority
 ```
 
-The tidyverse packages we will be using mostly in this example are readr (for reading in data), dplyr (for transforming data) and ggplot2 (for plotting). 
+The tidyverse packages we will be using mostly in this example are readr (for reading in data), dplyr (for transforming data) and ggplot2 (for plotting, used in data_analysis.Rmd). 
 
 ### Parenthesis: Functions
 
@@ -62,11 +69,12 @@ Reading in data can be tricky, depending on the file format. You are welcome to 
 
 Also, here's when you get to use the "here" package."Here" points to the location of the .Rproj file (which is the working directory for your project), so you just need to add "here" in front of the relative path to your data file.  
 
+
 ```{r read-data}
 
-df_demographics <- read_csv(here("PrimaryResearchData/population_demographics.csv"))
+df_demographics <- read_csv(here("PrimaryResearchData","population_demographics.csv"))
 
-df_admissions <- read_excel(here("PrimaryResearchData/hospital_admissions.xlsx"), 
+df_admissions <- read_excel(here("PrimaryResearchData","hospital_admissions.xlsx"), 
     skip = 1)   # this file has an additional row of non-data
 
 ```
@@ -95,10 +103,14 @@ There are a few functions you can use to inspect your data:
 ```{r inspect-data}
 
 summary(df_demographics)
-head(df_admissions)
+summary(df_admissions)
+head(df_admissions) # or tail -> change "head" for "tail" to see what happens
 glimpse(df_demographics)
 glimpse(df_admissions)
 
+# What do the following two functions do?
+str(df_demographics)
+slice_sample(df_admissions,n=5)
 ```
 
 ### Clean the data
@@ -197,5 +209,21 @@ The problem seems to be that some discharge dates are from 2002, while the rest 
 
 # Add your code here!
 
+summary(df_admissions)
+
 ```
+## Save the cleaned data
+
+Finally, we save df_demographics and df_admissions in csv files in the ProcessedData folder.
+
+```{r save-data}
+
+write_csv(df_demographics, here("ProcessedData","prep_population_demographics.csv"))
+write_csv(df_admissions, here("ProcessedData","prep_hospital_admissions.csv"))
+
+```
+
+Take a moment to compare the original and clean data. For the demographics data, there are no empty columns, wrong age values, or missing data. For the hospital admissions, we no longer have empty rows and extra headers, the dates are standardised, and there are no discharges earlier than admissions. 
+
+We are now ready to move on to the analysis. Make sure you commit all changes you made to this file, and the two new files you created in the ProcessedData folder.
 

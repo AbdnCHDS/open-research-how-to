@@ -8,7 +8,7 @@ For each of our two tasks, we will follow the same workflow, which takes advanta
 
 - Next, GitHub Desktop will suggest that you create a [pull request](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests) from the current branch. This is how your changes will eventually be merged into the main branch of the repository (after you have finished your code development, and your code has been reviewed and approved by your collaborators). However, you haven't actually made any changes, so you can't create a pull request yet... We'll come back to that a bit later.
 
-- Go to RStudio and open data-cleaning.Rmd (if you are working on issue 1) or data-analysis.Rmd (issue 2). Start working through the code.
+- Go to RStudio and open data_cleaning.Rmd (if you are working on issue 1) or data_analysis.Rmd (issue 2). Start working through the code.
 
 - When you start making changes, remember to go back to GitHub Desktop frequently, to commit your changes. Make sure you commit the changes to the correct branch, and use good commit messages that briefly describe the changes you made.
 
